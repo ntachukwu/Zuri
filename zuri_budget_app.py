@@ -1,3 +1,9 @@
+
+# Author: Dennis Chukwunta
+# Purpose: Zuri Internship Contineous assessment
+# Short Description: A Script to show the implementation of a Python class of Budget initialized with several category objects.
+# QUICK NOTE: The string.center(100) is used to center each print statement to the middle of a 100 character space.
+
 class Budget:
     ''' An app to keep track of your spending '''
 
@@ -33,10 +39,27 @@ class Budget:
         print()
         print((" N{} has been added to your {} Budget.".format(
             amount, self.categorie)).center(100))
-        print("^"*100)
+        print()
         print(("Your new Budget balance for {} is N{}.".format(
             self.categorie, self._amount_balance)).center(100))
         print("*"*100)
+
+    def withdrawal(self, amount):
+        assert type(
+            amount) == int and amount > 0, "The amount must be a number greater than zero."
+        if amount > self._amount_balance:
+            print(
+                ("You can't Withdraw more than the amount you have in your account.").center(100))
+            return
+        else:
+            self._amount_balance = self._amount_balance - amount
+            print()
+            print(("N{} has been withdrawn from your {} Budget").format(
+                amount, self.categorie).center(100))
+            print()
+            print(("Your new Budget balance for {} is N{}.".format(
+                self.categorie, self._amount_balance)).center(100))
+            print("*"*100)
 
 
 # Some category instances based on the Budget class
@@ -56,6 +79,10 @@ budget_cloth.transfer(budget_tp, 4500)
 budget_cloth.transfer(budget_wife, 20000)
 # Add more 200k for the wife. increasing Marriage budget from 20k to 220k
 budget_wife.add_money(200000)
+
+# To show the withdrawal method
+budget_wife.withdrawal(12000)  # Withdraw 12k from the Marriage Budget
+budget_house.withdrawal(70000)  # Withdraw 70k from the House Budget
 
 # Print the current balance of all the Budget categories using the balance method
 print()
