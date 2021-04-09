@@ -1,6 +1,6 @@
 
 # Author: Dennis Chukwunta
-# Purpose: Zuri Internship Contineous assessment
+# Purpose: Zuri Internship Continuous Assessment
 # Short Description: A Script to show the implementation of a Python class of Budget initialized with several category objects.
 # QUICK NOTE: The string.center(100) is used to center each print statement to the middle of a 100 character space.
 
